@@ -1,0 +1,15 @@
+{
+  "name": "fast-paginated-catalog",
+  "version": "1.0.0",
+  "description": "Fast product catalog with cursor pagination",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "seed": "node db/seed.js",
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.0",
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Product Catalog | Fast Keyset Pagination</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <h1>Catalog Engine</h1>
+        <p class="tagline">Browse 200,000+ items with instant cursor-based pagination and zero-shift consistency.</p>
+      </div>
+      <div class="stats-badge">
+        <span class="badge-label">Catalog Size</span>
+        <span class="badge-value">200,000+ Rows</span>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <!-- Sidebar Control Panel -->
+      <section class="control-panel">
+        <div class="panel-section">
+          <h2>Catalog Filters</h2>
+          <div class="form-group">
+            <label for="category-select">Category</label>
+            <select id="category-select">
+              <option value="">All Categories</option>
+            </select>
+          </div>
+          <button id="btn-refresh" class="btn btn-secondary">Refresh Catalog</button>
+        </div>
+
+        <div class="panel-section">
+          <h2>Simulate Concurrent Activity</h2>
+          <p class="panel-desc">Simulate changes happening in the background while you are actively reading the list.</p>
+          <div class="btn-group-vertical">
+            <button id="btn-simulate-insert" class="btn btn-primary">
+              <span class="icon">＋</span> Add 50 New Products
+            </button>
+            <button id="btn-simulate-update" class="btn btn-accent">
+              <span class="icon">⚡</span> Update 50 Products
+            </button>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h2>Activity Log</h2>
+          <div id="activity-log" class="console-log">
+            <div class="log-entry system">[System] Ready to test.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Feed & Feed Stats -->
+      <section class="feed-section">
+        <div class="feed-header">
+          <div class="feed-title-info">
+            <h2>Product Catalog</h2>
+            <p id="loaded-count">Loaded: 0 products</p>
+          </div>
+          <div id="perf-metrics" class="perf-metrics">
+            Query time: -- ms
+          </div>
+        </div>
+
+        <!-- Warning Alert Box for showing duplicate detections -->
+        <div id="duplicate-warning" class="alert alert-warning hidden">
+          <span class="alert-icon">⚠️</span>
+          <div class="alert-content">
+            <strong>Duplicate Product Detected!</strong> 
+            <p>You have seen the same product ID twice during this session.</p>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div id="products-grid" class="products-grid">
+          <!-- Dynamically injected by App.js -->
+        </div>
+
+        <!-- Loading & Pagination Controls -->
+        <div class="pagination-container">
+          <div id="loading-spinner" class="spinner hidden"></div>
+          <div class="pagination-controls">
+            <button id="btn-prev" class="btn btn-nav" disabled>← Prev Page</button>
+            <span id="page-indicator">Page 1</span>
+            <button id="btn-next" class="btn btn-nav">Next Page →</button>
+          </div>
+          <p id="end-of-catalog" class="end-catalog-text hidden">You have reached the end of the catalog.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
